@@ -122,7 +122,7 @@
 						sizeof(CONFIG_SYS_PROMPT) + 16)
 
 #define CONFIG_SYS_SDRAM_BASE           0x40000000
-#define CONFIG_SYS_TEXT_BASE            0x41200000
+#define CONFIG_SYS_TEXT_BASE            0x42000000
 #define CONFIG_SYS_SDRAM_SIZE           0x10000000
 #define CONFIG_MAX_RAM_BANK_SIZE        CONFIG_SYS_SDRAM_SIZE
 #define CONFIG_SYS_LOAD_ADDR            (CONFIG_SYS_SDRAM_BASE + (64 << 20))
@@ -317,7 +317,7 @@ typedef struct {
 
 /* NSS firmware loaded using bootm */
 #define CONFIG_IPQ_FIRMWARE
-#define CONFIG_BOOTCOMMAND  "run meraki_bootkernel2; run meraki_bootkernel1"
+#define CONFIG_BOOTCOMMAND  ""
 #define CONFIG_EXTRA_ENV_SETTINGS   CONFIG_ENV_DTS \
        "meraki_bootkernel2=nand read 0x42000000 0x02c40000 0x00a80000; bootbk 0x42000000 bootkernel2 $config_dts\0" \
        "meraki_bootkernel1=nand read 0x42000000 0x021c0000 0x00a80000; bootbk 0x42000000 bootkernel1 $config_dts\0"
@@ -326,7 +326,7 @@ typedef struct {
 #define CONFIG_CMD_ECHO
 #define CONFIG_BOOTDELAY	2
 #define CONFIG_AUTOBOOT_KEYED
-#define CONFIG_AUTOBOOT_STOP_STR "xyzzy"
+#define CONFIG_AUTOBOOT_STOP_STR " "
 
 #define CONFIG_MTD_DEVICE
 #define CONFIG_MTD_PARTITIONS
