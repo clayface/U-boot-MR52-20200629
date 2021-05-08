@@ -332,6 +332,12 @@ int board_init()
                (*(volatile unsigned int *)GPIO_CFG(22)) = 0x203;
                (*(volatile unsigned int *)GPIO_IO(22)) = 0x2;
 #endif
+#if defined(CONFIG_BIGFOOT)
+		(*(volatile unsigned int *)GPIO_CFG(6)) = 0x300;
+		(*(volatile unsigned int *)GPIO_CFG(7)) = 0x300;
+		(*(volatile unsigned int *)GPIO_IO(6)) = 0x2;
+		(*(volatile unsigned int *)GPIO_IO(7)) = 0x2;
+#endif
        }
 	
 

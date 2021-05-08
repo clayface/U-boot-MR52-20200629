@@ -70,7 +70,7 @@
 #undef CONFIG_CMD_IMLS
 #undef CONFIG_CMD_NFS		        /* NFS support */
 #define CONFIG_CMD_NET		        /* network support */
-#undef CONFIG_IPQ_ETH
+#define CONFIG_IPQ_ETH
 #define CONFIG_CMD_DHCP
 #undef CONFIG_SYS_MAX_FLASH_SECT
 #define CONFIG_NR_DRAM_BANKS            1
