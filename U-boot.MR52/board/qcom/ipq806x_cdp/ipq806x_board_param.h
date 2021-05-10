@@ -1063,24 +1063,24 @@ board_ipq806x_params_t board_params[] = {
 		.uart_mnd_value = { 12, 625, 313 },
 		.usb_core_mnd_value = { 1, 5, 32 },
 		.usb_utmi_mnd_value = { 1, 40, 1 },
+#if defined(CONFIG_YOWIE) //20141030 dannychuang modified for change PHY ADDR(0x01) and SGMII mode --s
+		.gmac_gpio_count = ARRAY_SIZE(gmac1_gpio),
+		.gmac_gpio = gmac1_gpio,
+		.gmac_cfg = {
+		//Yowie SGB has only 1 phy, 20150305
+			gmac_board_cfg(3, 1, SGMII, 0, 0, 1,
+					1, 2),
+			gmac_board_cfg_invalid(),
+#else
 		.gmac_gpio_count = ARRAY_SIZE(gmac0_gpio),
 		.gmac_gpio = gmac0_gpio,
 		.gmac_cfg = {
-#if 1 //20141030 dannychuang modified for change PHY ADDR(0x01) and SGMII mode --s
-		//Yowie SGB has only 1 phy, 20150305
 			gmac_board_cfg(2, 1, SGMII, 0, 0, 1,
                                         1, 0),
 			gmac_board_cfg(3, 1, SGMII, 0, 0, 1,
 					1, 4),
 			gmac_board_cfg_invalid(),
 			gmac_board_cfg_invalid(),			
-#else
-			gmac_board_cfg(1, 1, RGMII, S17_RGMII0_1_8V,
-			S17_RGMII1_1_8V, 0, 1, 4),
-			gmac_board_cfg(2, 1, SGMII, S17_RGMII0_1_8V,
-			S17_RGMII1_1_8V, 0, 4, 0, 1, 2, 3),
-			gmac_board_cfg_invalid(),
-			gmac_board_cfg_invalid(),
 #endif //20141030 dannychuang modified for change PHY ADDR(0x01) and SGMII mode --e
 		},
 		.flashdesc = NAND_NOR,
